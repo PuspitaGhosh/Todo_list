@@ -1,0 +1,22 @@
+<%-include("header");-%>
+  <div class="box" id="heading">
+      <h1><%=d%></h1>
+  </div>
+
+  <div class="box">
+    <form action="/delete" method="post">
+      <%newtodo.forEach(function(to){%>
+      <div class="item">
+        <input type="checkbox" name="checkbox" value="<%=to._id%>" onchange="this.form.submit()">
+        <p><%=to.todo%></p></div>
+      <%})%>
+     <input type="hidden" name="listName" value="<%=d%>">
+    </form>
+
+  <form class="item" action="/" method="post">
+    <input  type="text" name="todo" placeholder="Enter a to do." autocomplete="off">
+    <button type="submit" name="list" value="<%=d%>">+</button>
+  </form>
+  </div>
+
+<%-include("footer");-%>
